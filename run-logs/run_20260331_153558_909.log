@@ -1,0 +1,25 @@
+CPU Scheduling Simulator Run Log
+Timestamp: 2026-03-31 15:35:58
+Run Type: Run Simulation
+Quantum: 4
+
+Input Process Data
+PID | Arrival | Burst | Priority
+  1 |       0 |     1 |        1
+  2 |       0 |     1 |        1
+
+Comparison Summary
+Algorithm | AvgWaiting | AvgTurnaround | AvgResponse | CPUUtil(%) | Throughput
+Priority                 |      0.500 |         1.500 |       0.500 |    100.000 |      1.000
+Round Robin              |      0.500 |         1.500 |       0.500 |    100.000 |      1.000
+
+Per-Process Results - Priority
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       0 |     1 |          2 |       1 |          2 |        1
+
+Per-Process Results - Round Robin
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       0 |     1 |          2 |       1 |          2 |        1
+

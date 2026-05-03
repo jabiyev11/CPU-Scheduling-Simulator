@@ -1,0 +1,70 @@
+CPU Scheduling Simulator Run Log
+Timestamp: 2026-04-30 13:04:31
+Run Type: Run Simulation
+Quantum: 4
+
+Input Process Data
+PID | Arrival | Burst | Priority
+  1 |       0 |     1 |        2
+  2 |       8 |     2 |        1
+  3 |       7 |     3 |        2
+
+Comparison Summary
+Algorithm | AvgWaiting | AvgTurnaround | AvgResponse | CPUUtil(%) | Throughput | Jain | Gini | MinMaxGap
+First Come, First Served |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Priority                 |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Round Robin              |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Shortest Job First       |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Shortest Remaining Time First |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Lottery                  |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Guaranteed               |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+Multilevel Queue         |      0.667 |         2.667 |       0.667 |     50.000 |      0.250 | 0.926 | 0.133 |     0.500
+
+Per-Process Results - First Come, First Served
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Priority
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Round Robin
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Shortest Job First
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Shortest Remaining Time First
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Lottery
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Guaranteed
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+
+Per-Process Results - Multilevel Queue
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     1 |          1 |       0 |          1 |        0
+  2 | P2   |       8 |     2 |         12 |       2 |          4 |        2
+  3 | P3   |       7 |     3 |         10 |       0 |          3 |        0
+

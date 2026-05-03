@@ -1,0 +1,88 @@
+CPU Scheduling Simulator Run Log
+Timestamp: 2026-04-30 13:35:32
+Run Type: Run Simulation
+Quantum: 5
+
+Input Process Data
+PID | Arrival | Burst | Priority
+  1 |       1 |     1 |        1
+  2 |       9 |     4 |        2
+  3 |       4 |     3 |        1
+  4 |       1 |     7 |        3
+  5 |       1 |     5 |        1
+
+Comparison Summary
+Algorithm | AvgWaiting | AvgTurnaround | AvgResponse | CPUUtil(%) | Throughput | Jain | Gini | MinMaxGap
+First Come, First Served |      5.400 |         9.400 |       5.400 |    100.000 |      0.250 | 0.767 | 0.295 |     0.769
+Priority                 |      3.600 |         7.600 |       3.600 |    100.000 |      0.250 | 0.896 | 0.188 |     0.650
+Round Robin              |      6.200 |        10.200 |       4.600 |    100.000 |      0.250 | 0.788 | 0.252 |     0.727
+Shortest Job First       |      3.600 |         7.600 |       3.600 |    100.000 |      0.250 | 0.896 | 0.188 |     0.650
+Shortest Remaining Time First |      3.600 |         7.600 |       3.600 |    100.000 |      0.250 | 0.896 | 0.188 |     0.650
+Lottery                  |      6.400 |        10.400 |       5.000 |    100.000 |      0.250 | 0.692 | 0.328 |     0.833
+Guaranteed               |      6.600 |        10.600 |       4.200 |    100.000 |      0.250 | 0.785 | 0.252 |     0.727
+Multilevel Queue         |      3.600 |         7.600 |       3.600 |    100.000 |      0.250 | 0.896 | 0.188 |     0.650
+
+Per-Process Results - First Come, First Served
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         21 |       8 |         12 |        8
+  3 | P3   |       4 |     3 |         17 |      10 |         13 |       10
+  4 | P4   |       1 |     7 |          9 |       1 |          8 |        1
+  5 | P5   |       1 |     5 |         14 |       8 |         13 |        8
+
+Per-Process Results - Priority
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         14 |       1 |          5 |        1
+  3 | P3   |       4 |     3 |         10 |       3 |          6 |        3
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |       13
+  5 | P5   |       1 |     5 |          7 |       1 |          6 |        1
+
+Per-Process Results - Round Robin
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         21 |       8 |         12 |        8
+  3 | P3   |       4 |     3 |         15 |       8 |         11 |        8
+  4 | P4   |       1 |     7 |         17 |       9 |         16 |        1
+  5 | P5   |       1 |     5 |         12 |       6 |         11 |        6
+
+Per-Process Results - Shortest Job First
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         14 |       1 |          5 |        1
+  3 | P3   |       4 |     3 |         10 |       3 |          6 |        3
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |       13
+  5 | P5   |       1 |     5 |          7 |       1 |          6 |        1
+
+Per-Process Results - Shortest Remaining Time First
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         14 |       1 |          5 |        1
+  3 | P3   |       4 |     3 |         10 |       3 |          6 |        3
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |       13
+  5 | P5   |       1 |     5 |          7 |       1 |          6 |        1
+
+Per-Process Results - Lottery
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          7 |       5 |          6 |        5
+  2 | P2   |       9 |     4 |         19 |       6 |         10 |        6
+  3 | P3   |       4 |     3 |         15 |       8 |         11 |        8
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |        6
+  5 | P5   |       1 |     5 |          6 |       0 |          5 |        0
+
+Per-Process Results - Guaranteed
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         19 |       6 |         10 |        6
+  3 | P3   |       4 |     3 |         15 |       8 |         11 |        8
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |        1
+  5 | P5   |       1 |     5 |         12 |       6 |         11 |        6
+
+Per-Process Results - Multilevel Queue
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       1 |     1 |          2 |       0 |          1 |        0
+  2 | P2   |       9 |     4 |         14 |       1 |          5 |        1
+  3 | P3   |       4 |     3 |         10 |       3 |          6 |        3
+  4 | P4   |       1 |     7 |         21 |      13 |         20 |       13
+  5 | P5   |       1 |     5 |          7 |       1 |          6 |        1
+

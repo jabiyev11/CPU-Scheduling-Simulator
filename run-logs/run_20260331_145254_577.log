@@ -1,0 +1,52 @@
+CPU Scheduling Simulator Run Log
+Timestamp: 2026-03-31 14:52:54
+Run Type: Run Simulation
+Quantum: 4
+
+Input Process Data
+PID | Arrival | Burst | Priority
+  1 |       0 |     3 |        3
+  2 |       4 |     2 |        3
+  3 |       8 |     1 |        2
+  4 |       3 |     1 |        2
+  5 |       5 |     6 |        1
+
+Comparison Summary
+Algorithm | AvgWaiting | AvgTurnaround | AvgResponse | CPUUtil(%) | Throughput
+First Come, First Served |      1.000 |         3.600 |       1.000 |    100.000 |      0.385
+Priority                 |      1.000 |         3.600 |       1.000 |    100.000 |      0.385
+Round Robin              |      0.800 |         3.400 |       0.600 |    100.000 |      0.385
+Shortest Job First       |      1.000 |         3.600 |       1.000 |    100.000 |      0.385
+
+Per-Process Results - First Come, First Served
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     3 |          3 |       0 |          3 |        0
+  2 | P2   |       4 |     2 |          6 |       0 |          2 |        0
+  3 | P3   |       8 |     1 |         13 |       4 |          5 |        4
+  4 | P4   |       3 |     1 |          4 |       0 |          1 |        0
+  5 | P5   |       5 |     6 |         12 |       1 |          7 |        1
+
+Per-Process Results - Priority
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     3 |          3 |       0 |          3 |        0
+  2 | P2   |       4 |     2 |          6 |       0 |          2 |        0
+  3 | P3   |       8 |     1 |         13 |       4 |          5 |        4
+  4 | P4   |       3 |     1 |          4 |       0 |          1 |        0
+  5 | P5   |       5 |     6 |         12 |       1 |          7 |        1
+
+Per-Process Results - Round Robin
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     3 |          3 |       0 |          3 |        0
+  2 | P2   |       4 |     2 |          6 |       0 |          2 |        0
+  3 | P3   |       8 |     1 |         11 |       2 |          3 |        2
+  4 | P4   |       3 |     1 |          4 |       0 |          1 |        0
+  5 | P5   |       5 |     6 |         13 |       2 |          8 |        1
+
+Per-Process Results - Shortest Job First
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       0 |     3 |          3 |       0 |          3 |        0
+  2 | P2   |       4 |     2 |          6 |       0 |          2 |        0
+  3 | P3   |       8 |     1 |         13 |       4 |          5 |        4
+  4 | P4   |       3 |     1 |          4 |       0 |          1 |        0
+  5 | P5   |       5 |     6 |         12 |       1 |          7 |        1
+

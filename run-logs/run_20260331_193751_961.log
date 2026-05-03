@@ -1,0 +1,43 @@
+CPU Scheduling Simulator Run Log
+Timestamp: 2026-03-31 19:37:51
+Run Type: Run Simulation
+Quantum: 5
+
+Input Process Data
+PID | Arrival | Burst | Priority
+  1 |       8 |     7 |        2
+  2 |       1 |     4 |        2
+  3 |       2 |     4 |        1
+  4 |       6 |     2 |        1
+  5 |       8 |     4 |        3
+
+Comparison Summary
+Algorithm | AvgWaiting | AvgTurnaround | AvgResponse | CPUUtil(%) | Throughput
+First Come, First Served |      3.800 |         8.000 |       3.800 |    100.000 |      0.238
+Priority                 |      3.800 |         8.000 |       3.800 |    100.000 |      0.238
+Round Robin              |      4.200 |         8.400 |       3.400 |    100.000 |      0.238
+
+Per-Process Results - First Come, First Served
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       8 |     7 |         18 |       3 |         10 |        3
+  2 | P2   |       1 |     4 |          5 |       0 |          4 |        0
+  3 | P3   |       2 |     4 |          9 |       3 |          7 |        3
+  4 | P4   |       6 |     2 |         11 |       3 |          5 |        3
+  5 | P5   |       8 |     4 |         22 |      10 |         14 |       10
+
+Per-Process Results - Priority
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       8 |     7 |         18 |       3 |         10 |        3
+  2 | P2   |       1 |     4 |          5 |       0 |          4 |        0
+  3 | P3   |       2 |     4 |          9 |       3 |          7 |        3
+  4 | P4   |       6 |     2 |         11 |       3 |          5 |        3
+  5 | P5   |       8 |     4 |         22 |      10 |         14 |       10
+
+Per-Process Results - Round Robin
+PID | Name | Arrival | Burst | Completion | Waiting | Turnaround | Response
+  1 | P1   |       8 |     7 |         22 |       7 |         14 |        3
+  2 | P2   |       1 |     4 |          5 |       0 |          4 |        0
+  3 | P3   |       2 |     4 |          9 |       3 |          7 |        3
+  4 | P4   |       6 |     2 |         11 |       3 |          5 |        3
+  5 | P5   |       8 |     4 |         20 |       8 |         12 |        8
+

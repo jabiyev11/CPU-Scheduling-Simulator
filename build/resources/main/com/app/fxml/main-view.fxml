@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:controller="com.app.controller.MainController"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="12" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="14" right="14" bottom="10" left="14"/>
+            </padding>
+            <HBox spacing="10">
+                <Label styleClass="headline" text="CPU Scheduling Algorithms Simulator"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Process count"/>
+                <Spinner fx:id="processCountSpinner" prefWidth="100"/>
+                <Label text="Quantum"/>
+                <Spinner fx:id="quantumSpinner" prefWidth="100"/>
+                <Label text="Input mode"/>
+                <ChoiceBox fx:id="inputModeChoiceBox" prefWidth="140"/>
+                <Button fx:id="initializeManualButton" mnemonicParsing="false" onAction="#onInitializeManual" text="Initialize Manual Rows"/>
+                <Button fx:id="randomizeButton" mnemonicParsing="false" onAction="#onRandomizeProcesses" text="Randomize"/>
+                <Button fx:id="runButton" mnemonicParsing="false" onAction="#onRunSimulation" text="Run Simulation"/>
+                <Button mnemonicParsing="false" onAction="#onResetAll" text="Reset"/>
+            </HBox>
+            <HBox spacing="18">
+                <Label text="Algorithms"/>
+                <CheckBox fx:id="fcfsCheckBox" text="FCFS"/>
+                <CheckBox fx:id="priorityCheckBox" text="PRI"/>
+                <CheckBox fx:id="roundRobinCheckBox" text="RR"/>
+                <CheckBox fx:id="sjfCheckBox" text="SJF"/>
+                <CheckBox fx:id="srtfCheckBox" text="SRTF"/>
+                <CheckBox fx:id="lotteryCheckBox" text="LOT"/>
+                <CheckBox fx:id="guaranteedCheckBox" text="GTD"/>
+                <CheckBox fx:id="multilevelQueueCheckBox" text="MLQ"/>
+                <Label text="(If none selected, all run)"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Last log:"/>
+                <Label fx:id="logPathLabel" text="Not generated yet"/>
+            </HBox>
+            <Separator/>
+        </VBox>
+    </top>
+    <center>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="0" right="14" bottom="14" left="14"/>
+            </padding>
+            <VBox fx:id="processDataPanel" spacing="8" minWidth="430" prefWidth="430" HBox.hgrow="ALWAYS">
+                <Label styleClass="section-label" text="Process Data"/>
+                <TableView fx:id="processTable" editable="true" prefHeight="600" minWidth="0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="pidColumn" prefWidth="70" text="PID"/>
+                        <TableColumn fx:id="arrivalColumn" prefWidth="110" text="Arrival Time"/>
+                        <TableColumn fx:id="burstColumn" prefWidth="110" text="Burst Time"/>
+                        <TableColumn fx:id="ioBurstColumn" prefWidth="110" text="I/O Burst"/>
+                        <TableColumn fx:id="priorityColumn" prefWidth="110" text="PRI"/>
+                    </columns>
+                </TableView>
+            </VBox>
+            <VBox fx:id="ganttPanel" spacing="8" minWidth="0" HBox.hgrow="ALWAYS">
+                <Label styleClass="section-label" text="Gantt Charts"/>
+                <TabPane fx:id="resultsTabPane" minWidth="0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
+
