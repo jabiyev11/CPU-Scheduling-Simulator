@@ -29,7 +29,10 @@ public final class MultilevelQueueScheduler implements Scheduler {
         Map<Integer, Integer> firstStartTimes = new HashMap<>();
         List<LogEntry> scheduleLog = new ArrayList<>();
 
+        // Three fixed tiers: high (priority <= 1) uses quantum, mid (priority 2) uses 2x quantum,
+        // low (priority >= 3) runs FCFS (no time-slicing)
         int highQuantum = quantum;
+        // Mid-queue gets double the slice to reduce context-switch overhead on moderate-priority work
         int midQuantum = Math.max(1, quantum * 2);
 
         int time = processes.get(0).getArrivalTime();
@@ -55,6 +58,7 @@ public final class MultilevelQueueScheduler implements Scheduler {
                 ownerQueue = midQueue;
             } else if (!lowQueue.isEmpty()) {
                 chosen = lowQueue.removeFirst();
+                // Low-priority queue is non-preemptive: run to completion in one shot
                 slice = chosen.getRemainingTime();
                 ownerQueue = lowQueue;
             } else {
@@ -85,8 +89,11 @@ public final class MultilevelQueueScheduler implements Scheduler {
                 ownerQueue.addLast(chosen);
             } else {
                 chosen.setCompletionTime(time);
+                // Turnaround Time = Completion Time - Arrival Time
                 chosen.setTurnaroundTime(time - chosen.getArrivalTime());
+                // Waiting Time = Turnaround Time - Burst Time
                 chosen.setWaitingTime(chosen.getTurnaroundTime() - chosen.getBurstTime());
+                // Response Time = First Start Time - Arrival Time
                 chosen.setResponseTime(firstStartTimes.get(chosen.getPid()) - chosen.getArrivalTime());
             }
         }

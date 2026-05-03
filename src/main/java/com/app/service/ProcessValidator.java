@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 
 public final class ProcessValidator {
 
+  // Returns a deep copy so the scheduler can mutate fields
   public List<Process> validateAndCopy(ObservableList<Process> processes) {
     if (processes.isEmpty()) {
       throw new IllegalArgumentException(

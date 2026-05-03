@@ -43,7 +43,7 @@ public final class GanttChartRenderer {
         gc.fillText(title, LEFT_PADDING, 18);
 
         Map<Integer, Color> colorByPid = new HashMap<>();
-        // For drawing vertical timeline grid
+        // draw time tick marks and alternating grid lines
         for (int i = 0; i <= maxTime; i++) {
             double x = LEFT_PADDING + (i * UNIT_WIDTH);
             gc.setStroke(i % 2 == 0 ? Color.web("#334155") : Color.web("#1E293B"));
@@ -52,7 +52,7 @@ public final class GanttChartRenderer {
             gc.fillText(String.valueOf(i), x - 4, height - 4);
         }
 
-        // For drawing one colored bar per execution log entry
+        // render one colored block per Gantt entry, label shows PID and finish marker
         for (int i = 0; i < entries.size(); i++) {
             LogEntry entry = entries.get(i);
             colorByPid.putIfAbsent(entry.pid(), PALETTE.get(colorByPid.size() % PALETTE.size()));

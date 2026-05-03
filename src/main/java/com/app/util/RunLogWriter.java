@@ -20,6 +20,7 @@ public final class RunLogWriter {
     private RunLogWriter() {
     }
 
+    //for generating log files under run-logs folder
     public static Path writeRunLog(
         String runType,
         int quantum,

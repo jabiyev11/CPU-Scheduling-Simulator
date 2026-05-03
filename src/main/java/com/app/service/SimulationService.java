@@ -93,6 +93,7 @@ public final class SimulationService {
         return ioByPid;
     }
 
+    // Each scheduler runs CPU-only; I/O burst is added to completion time here so schedulers
     private SchedulerResult withIoAdjustedMetrics(
         SchedulerResult cpuOnlyResult,
         Map<Integer, Integer> ioByPid

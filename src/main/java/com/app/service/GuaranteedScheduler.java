@@ -23,6 +23,7 @@ public final class GuaranteedScheduler implements Scheduler {
         processes.sort(Comparator.comparingInt(Process::getArrivalTime));
         List<Process> ready = new ArrayList<>();
         Map<Integer, Integer> firstStartTimes = new HashMap<>();
+        // cpuUsed tracks how many time units each process has actually run so far
         Map<Integer, Integer> cpuUsed = new HashMap<>();
         List<LogEntry> scheduleLog = new ArrayList<>();
 
@@ -44,6 +45,7 @@ public final class GuaranteedScheduler implements Scheduler {
                 continue;
             }
 
+            // Always run the process that has received the smallest fraction of its expected CPU
             Process chosen = ready.stream()
                 .min((a, b) -> {
                     double ratioA = cpuUsed.getOrDefault(a.getPid(), 0) / (double) a.getBurstTime();
@@ -91,8 +93,11 @@ public final class GuaranteedScheduler implements Scheduler {
                 ready.add(chosen);
             } else {
                 chosen.setCompletionTime(time);
+                // Turnaround Time = Completion Time - Arrival Time
                 chosen.setTurnaroundTime(time - chosen.getArrivalTime());
+                // Waiting Time = Turnaround Time - Burst Time
                 chosen.setWaitingTime(chosen.getTurnaroundTime() - chosen.getBurstTime());
+                // Response Time = First Start Time - Arrival Time
                 chosen.setResponseTime(firstStartTimes.get(chosen.getPid()) - chosen.getArrivalTime());
             }
         }

@@ -24,6 +24,7 @@ final class FairnessCalculator {
     return (sum * sum) / (values.size() * sumSquares);
   }
 
+  // Standard Gini via sorted-rank formula: 0 = equal, 1 = maximally unequal
   static double giniCoefficient(List<Double> values) {
     if (values.isEmpty()) {
       return 0.0;

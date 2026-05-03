@@ -72,8 +72,11 @@ public final class LotteryScheduler implements Scheduler {
                 ready.add(chosen);
             } else {
                 chosen.setCompletionTime(time);
+                // Turnaround Time = Completion Time - Arrival Time
                 chosen.setTurnaroundTime(time - chosen.getArrivalTime());
+                // Waiting Time = Turnaround Time - Burst Time
                 chosen.setWaitingTime(chosen.getTurnaroundTime() - chosen.getBurstTime());
+                // Response Time = First Start Time - Arrival Time
                 chosen.setResponseTime(firstStartTimes.get(chosen.getPid()) - chosen.getArrivalTime());
             }
         }
@@ -81,6 +84,7 @@ public final class LotteryScheduler implements Scheduler {
         return SchedulerMetricsCalculator.buildResult(SchedulingAlgorithm.LOTTERY, processes, scheduleLog);
     }
 
+    // Weighted random selection: draw a ticket number, then walk cumulative buckets to find winner
     private Process drawByTickets(List<Process> ready) {
         int totalTickets = 0;
         for (Process process : ready) {
@@ -98,6 +102,7 @@ public final class LotteryScheduler implements Scheduler {
         return ready.get(ready.size() - 1);
     }
 
+    // Priority 1 -> 5 tickets, priority 2 -> 4, ..., priority 5+ -> 1 ticket (inverse relationship)
     private int tickets(Process process) {
         return Math.max(1, 6 - process.getPriority());
     }

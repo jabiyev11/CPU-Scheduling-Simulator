@@ -31,6 +31,7 @@ public record MetricExtremes(
   }
 
   public static MetricExtremes from(List<SchedulerResult> results) {
+    // Note the polarity flip for some metrics: cpuUtil/throughput/jain are higher-is-better,
     return new MetricExtremes(
         min(results, SchedulerResult::avgWaitingTime),
         max(results, SchedulerResult::avgWaitingTime),
